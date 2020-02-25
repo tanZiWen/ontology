@@ -211,7 +211,7 @@ func (self *StateStore) HandleInvokeTransaction(store store.LedgerStore, overlay
 	_, err = engine.Invoke()
 	if sc.IsInternalErr() {
 		overlay.SetError(fmt.Errorf("[HandleInvokeTransaction] %s", err))
-		return nil
+		return nil, nil
 	}
 
 	costGasLimit = availableGasLimit - sc.Gas
